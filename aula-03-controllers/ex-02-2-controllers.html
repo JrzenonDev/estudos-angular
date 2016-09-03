@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-ng-app="BeMean">
+<head>
+    <meta charset="utf-8">
+    <title>Be Mean</title>
+</head>
+<body data-ng-controller="UserController">
+
+    <h1>{{titulo}}</h1>
+
+    <ul>
+        <li data-ng-repeat="user in users">
+            {{user.name}} - {{user.email}}
+        </li>
+    </ul>
+
+    <div data-ng-controller="CursoController">
+        <h2>{{titulo}}</h2>
+        <ul>
+            <li data-ng-repeat="curso in cursos">
+                {{curso.name}} - {{curso.teacher}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script>
+        angular.module('BeMean', [])
+            .controller('UserController', UserController)
+            .controller('CursoController', CursoController);
+
+        function UserController($scope) {
+            $scope.titulo = "Be MEAN - Usuários";
+            $scope.users = [
+                {name: 'Jose', email: 'jrobertoonb@gmail.com'},
+                {name: 'Giovana', email: 'giovana@gmail.com'},
+                {name: 'Julia', email: 'julia@gmail.com'}
+                            ];
+        }
+        UserController['$inject'] = ['$scope'];
+
+        function CursoController($scope) {
+            $scope.titulo = "Be MEAN - Cursos";
+            $scope.cursos = [
+                {name: 'Bea MEAN', teacher: 'jroberto'},
+                {name: 'Learn Machine', teacher: 'jroberto'},
+                {name: 'Laravel', teacher: 'jroberto'}
+                            ];
+        }
+        CursoController['$inject'] = ['$scope'];
+    </script>
+</body>
+</html>
