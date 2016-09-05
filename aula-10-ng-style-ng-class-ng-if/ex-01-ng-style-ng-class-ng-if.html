@@ -112,7 +112,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr data-ng-class="{bold: !user.selecionado, strike:user.selecionado}" class="item" data-ng-repeat="user in User.users | filter:searchUser | orderBy:Uer.predicate:User.reverse">
+                <tr data-ng-class="{bold: !user.selecionado, strike:user.selecionado}" class="item" data-ng-repeat="user in User.users | filter:searchUser | orderBy:User.predicate:User.reverse">
 
                     <td>
                         <input type="checkbox" id="user-{{$index}}" ng-model="user.selecionado" />
